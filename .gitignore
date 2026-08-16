@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Tooling
+.ruff_cache/
+.pytest_cache/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Secrets — OAuth client + generated tokens
+config/
+
+# Runtime state — history IDs + processed message IDs
+data/
+
+# Listener test artifacts
+listener_test.*
+
+# Model artifacts — 700 MB checkpoint, never push
+models/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+PROJECT_DESCRIPTION.md

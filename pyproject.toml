@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gmail-access"
+version = "0.1.0"
+description = "Gmail watcher with Pub/Sub push notifications and department-based email forwarding"
+requires-python = ">=3.10"
+dependencies = [
+    "google-api-python-client>=2.100",
+    "google-auth-oauthlib>=1.0",
+    "google-cloud-pubsub>=2.19",
+    "beautifulsoup4>=4.12",
+    "python-dotenv>=1.0",
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+gmail-watch = "gmail_access.watch_mail:start_gmail_watch"
+gmail-listener = "gmail_access.pubsub_listener:main"
+gmail-api = "gmail_access.api.main:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "S", "UP"]
